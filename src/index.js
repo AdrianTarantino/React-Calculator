@@ -53,7 +53,6 @@ class Calculator extends React.Component {
   
   render() {
     const displayNumber = this.state.displayNumber;
-    console.log(displayNumber);
 
     return (
       <div className='Calculator'>
