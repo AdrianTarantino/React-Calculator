@@ -9,65 +9,100 @@ class Block extends React.Component {
 
     this.state = {
       value: this.props.value,
-      position: this.props.position,
     };
   }
 
   render() {
-    const divPosition = `Button ${this.state.position}`;
-
     return (
-      <div class={divPosition}>
-        <p class='Text'>{this.state.value}</p>
+      <div className="Button">
+        <p className='Text'>{this.state.value}</p>
       </div>
     )
   }
 }
 
 
-class Screen extends React.Component {
-  renderBlock(value, position) {
-    return (
-      <Block value={value} position={position}/>
-    );
+class NumberScreen extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      displayNumber: this.props.displayNumber
+    };
   }
-  
+
+  updateDisplayNumber(newDisplayNumber) {
+    this.setState({displayNumber: newDisplayNumber});
+  }
+
   render() {
     return (
-      <div class='Screen'>
-        <div class='Row'>
-          {this.renderBlock(7, "one")}
-          {this.renderBlock(8, "two")}
-          {this.renderBlock(9, "three")}
-        </div>
-        <div class='Row'>
-          {this.renderBlock(4, "one")}
-          {this.renderBlock(5, "two")}
-          {this.renderBlock(6, "three")}
-        </div>
-        <div class='Row'>
-          {this.renderBlock(1, "one")}
-          {this.renderBlock(2, "two")}
-          {this.renderBlock(3, "three")}
-        </div>
-        <div class='Row'>
-          {this.renderBlock(0, "one")}
-        </div>
-      </div>
+      <p className='Text'>{this.state.displayNumber}</p>
     );
   }
 }
 
 
 class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      displayNumber: 0,
+    }
+  }
+
+  renderBlock(value) {
+    return (
+      <Block value={value}/>
+    );
+  }
+
+  renderNumberScreen(displayNumber) {
+    return (
+      <NumberScreen displayNumber={0}/>
+    );
+  }
+  
+  render() {
+    return (
+      <div class='calculator-object'>
+        <div>
+          {this.renderNumberScreen(0)}
+        </div>
+        <div className="board-row">
+          {this.renderBlock(7)}
+          {this.renderBlock(8)}
+          {this.renderBlock(9)}
+        </div>
+        <div className="board-row">
+          {this.renderBlock(4)}
+          {this.renderBlock(5)}
+          {this.renderBlock(6)}
+        </div>
+        <div className="board-row">
+          {this.renderBlock(1)}
+          {this.renderBlock(2)}
+          {this.renderBlock(3)}
+        </div>
+        <div className="board-row">
+          {this.renderBlock(0)}
+        </div>
+      </div>
+    );
+  }
+}
+
+
+class App extends React.Component {
   render() {
     return (
       <div>
-        <Screen/>
+        <Calculator/>
       </div>
     );
   }
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Calculator/>);
+root.render(<App/>);

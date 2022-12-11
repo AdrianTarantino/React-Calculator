@@ -2,11 +2,10 @@ body {
     background-color:#A14835;
 }
 
-.Row {
-    width:fit-content;
-
-    border-color:aqua;
-    border-radius:4px;
+.board-row:after {
+    clear:both;
+    content:"";
+    display: table;
 }
 
 .Text {
@@ -28,4 +27,18 @@ body {
     border-color:#303030;
     border-width:3px;
     border-radius: 50%;
+
+    float: left;
+}
+
+.Button.one {
+    margin-left: 5px;
+}
+
+.Button.two {
+    margin-left: 60px;
+}
+
+.Button.three {
+    margin-left: 70px;
 }
