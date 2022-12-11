@@ -14,31 +14,11 @@ class Block extends React.Component {
 
   render() {
     return (
-      <div className="Button">
+      <button className="Button" 
+              onClick={() => {this.props.onClick()}}>
         <p className='Text'>{this.state.value}</p>
-      </div>
+      </button>
     )
-  }
-}
-
-
-class NumberScreen extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      displayNumber: this.props.displayNumber
-    };
-  }
-
-  updateDisplayNumber(newDisplayNumber) {
-    this.setState({displayNumber: newDisplayNumber});
-  }
-
-  render() {
-    return (
-      <p className='Text'>{this.state.displayNumber}</p>
-    );
   }
 }
 
@@ -48,27 +28,37 @@ class Calculator extends React.Component {
     super(props);
 
     this.state = {
-      displayNumber: 0,
+      displayNumber: "0",
     }
+  }
+
+  handleButtonClick(value) {
+    const displayNumber = this.state.displayNumber.slice();
+
+    if(displayNumber === "0") {
+      this.setState({displayNumber: `${value}`});
+      return
+    }
+    this.setState({displayNumber: `${displayNumber}${value}`});
   }
 
   renderBlock(value) {
     return (
-      <Block value={value}/>
-    );
-  }
-
-  renderNumberScreen(displayNumber) {
-    return (
-      <NumberScreen displayNumber={0}/>
+      <Block 
+        value={value} 
+        onClick={() => {this.handleButtonClick(value)}}
+      />
     );
   }
   
   render() {
+    const displayNumber = this.state.displayNumber;
+    console.log(displayNumber);
+
     return (
-      <div class='calculator-object'>
-        <div>
-          {this.renderNumberScreen(0)}
+      <div className='Calculator'>
+        <div className='Number-Screen'>
+          <p className='Text'>{displayNumber}</p>
         </div>
         <div className="board-row">
           {this.renderBlock(7)}
