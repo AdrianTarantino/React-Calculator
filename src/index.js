@@ -21,6 +21,8 @@ class Block extends React.Component {
     )
   }
 }
+class NumberBlock extends Block {}
+class OperationBlock extends Block {}
 
 
 class Calculator extends React.Component {
@@ -32,7 +34,7 @@ class Calculator extends React.Component {
     }
   }
 
-  handleButtonClick(value) {
+  handleNumberButtonClick(value) {
     const displayNumber = this.state.displayNumber.slice();
 
     if(displayNumber === "0") {
@@ -42,13 +44,46 @@ class Calculator extends React.Component {
     this.setState({displayNumber: `${displayNumber}${value}`});
   }
 
-  renderBlock(value) {
-    return (
-      <Block 
-        value={value} 
-        onClick={() => {this.handleButtonClick(value)}}
-      />
-    );
+  handleOperationButtonClick(value) {
+    switch(value) {
+      case "c":
+        this.setState({displayNumber: "0"});
+        break;
+
+      case "=":
+        console.log("=");
+        break;
+
+      case "/":
+        console.log("/");
+        break;
+
+      case "X":
+        console.log("X");
+        break;
+
+      case "-":
+        console.log("-");
+        break;
+
+      case "+":
+        console.log("+");
+        break;
+    }
+  }
+
+  renderNumberBlock(value) {
+    return <NumberBlock 
+      value={value} 
+      onClick={() => {this.handleNumberButtonClick(value)}}
+    />
+  }
+
+  renderOperationBlock(value) {
+    return <OperationBlock
+      value={value}
+      onClick={() => {this.handleOperationButtonClick(value)}}
+    />;
   }
   
   render() {
@@ -60,22 +95,28 @@ class Calculator extends React.Component {
           <p className='Text'>{displayNumber}</p>
         </div>
         <div className="board-row">
-          {this.renderBlock(7)}
-          {this.renderBlock(8)}
-          {this.renderBlock(9)}
+          {this.renderNumberBlock(7)}
+          {this.renderNumberBlock(8)}
+          {this.renderNumberBlock(9)}
+          {this.renderOperationBlock("/")}
         </div>
         <div className="board-row">
-          {this.renderBlock(4)}
-          {this.renderBlock(5)}
-          {this.renderBlock(6)}
+          {this.renderNumberBlock(4)}
+          {this.renderNumberBlock(5)}
+          {this.renderNumberBlock(6)}
+          {this.renderOperationBlock("X")}
         </div>
         <div className="board-row">
-          {this.renderBlock(1)}
-          {this.renderBlock(2)}
-          {this.renderBlock(3)}
+          {this.renderNumberBlock(1)}
+          {this.renderNumberBlock(2)}
+          {this.renderNumberBlock(3)}
+          {this.renderOperationBlock("-")}
         </div>
         <div className="board-row">
-          {this.renderBlock(0)}
+          {this.renderNumberBlock(0)}
+          {this.renderOperationBlock("c")}
+          {this.renderOperationBlock("=")}
+          {this.renderOperationBlock("+")}
         </div>
       </div>
     );
@@ -92,6 +133,7 @@ class App extends React.Component {
     );
   }
 }
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App/>);

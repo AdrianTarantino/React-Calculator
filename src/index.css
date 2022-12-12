@@ -18,6 +18,15 @@ body {
     margin-top:5px;
 }
 
+.Number-Screen {
+    background-color:#C77260;
+    text-align:right;
+
+    width: 160px;
+
+    border-radius: 30%;
+}
+
 .Button {
     background-color:#C77260;
     text-align: center;
@@ -27,16 +36,4 @@ body {
     border-radius: 50%;
 
     float: left;
-}
-
-.Button.one {
-    margin-left: 5px;
-}
-
-.Button.two {
-    margin-left: 60px;
-}
-
-.Button.three {
-    margin-left: 70px;
 }
