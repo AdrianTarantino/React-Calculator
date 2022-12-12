@@ -1,5 +1,14 @@
+:root {
+    --main-background-colour:#A14835;
+    --secondary-background-colour:#C77260;
+    --main-text-colour:#F7B2A3;
+
+    --button-width: 40px;
+    --button-height: 40px;
+}
+
 body {
-    background-color:#A14835;
+    background-color: var(--main-background-colour);
 }
 
 .board-row:after {
@@ -8,8 +17,8 @@ body {
     display: table;
 }
 
-.Text {
-    color:#F7B2A3;
+.text {
+    color: var(--main-text-colour);
     font-family:Roboto, Noto, sans-serif;
     font-size:30px;
 
@@ -18,20 +27,20 @@ body {
     margin-top:5px;
 }
 
-.Number-Screen {
-    background-color:#C77260;
+.number-screen {
+    background-color: var(--secondary-background-colour);
     text-align:right;
 
-    width: 160px;
+    width: calc(4 * var(--button-width));
 
     border-radius: 30%;
 }
 
-.Button {
-    background-color:#C77260;
+.button {
+    background-color: var(--secondary-background-colour);
     text-align: center;
-    width: 40px;
-    height: 40px;
+    width: var(--button-width);
+    height: var(--button-height);
 
     border-radius: 50%;
 

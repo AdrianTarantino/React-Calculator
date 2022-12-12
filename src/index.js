@@ -14,9 +14,9 @@ class Block extends React.Component {
 
   render() {
     return (
-      <button className="Button" 
+      <button className="button" 
               onClick={() => {this.props.onClick()}}>
-        <p className='Text'>{this.state.value}</p>
+        <p className='text'>{this.state.value}</p>
       </button>
     )
   }
@@ -69,6 +69,9 @@ class Calculator extends React.Component {
       case "+":
         console.log("+");
         break;
+
+      default:
+        return;
     }
   }
 
@@ -90,11 +93,14 @@ class Calculator extends React.Component {
     const displayNumber = this.state.displayNumber;
 
     return (
-      <div className='Calculator'>
-        <div className='Number-Screen'>
-          <p className='Text'>{displayNumber}</p>
+      <div className='calculator'>
+        {/* The numbers and operations being used */}
+        <div className='number-screen'>
+          <p className='text'>{displayNumber}</p>   
         </div>
-        <div className="board-row">
+        
+        {/* All the buttons for the operations and numbers */}
+        <div className="board-row">                 
           {this.renderNumberBlock(7)}
           {this.renderNumberBlock(8)}
           {this.renderNumberBlock(9)}
