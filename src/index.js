@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+import { create, all } from 'mathjs'
+
 
 class Block extends React.Component {
   constructor(props) {
@@ -35,6 +37,12 @@ class Calculator extends React.Component {
     }
   }
 
+  evaluateDisplayEquation(equation) {
+    const config = { }
+    const math = create(all, config);
+    return math.evaluate(equation.toLowerCase());
+  }
+
   handleNumberButtonClick(value) {
     this.setState({lastCharacter: value});
     const displayEquation = this.state.displayEquation;
@@ -51,37 +59,19 @@ class Calculator extends React.Component {
       this.setState({displayEquation: "0"});
       return;
     }
+
+    if(value == "=") {
+      const solvedEquation = this.evaluateDisplayEquation(this.state.displayEquation);
+
+      this.setState({displayEquation: solvedEquation.toString()});
+      return;
+    }
     
-    const operationValues = ["=", "/", "X",
+    const operationValues = ["/", "*",
                              "-", "+"];
     if(operationValues.includes(this.state.lastCharacter)) {return}
 
     this.setState({lastCharacter: value});
-    switch(value) {
-      case "=":
-        console.log("=");
-        return;
-
-      case "/":
-        console.log("/");
-        break;
-
-      case "X":
-        console.log("X");
-        break;
-
-      case "-":
-        console.log("-");
-        break;
-
-      case "+":
-        console.log("+");
-        break;
-
-      default:
-        console.log("This wasn't supposed to happen")
-        return;
-    }
 
     const displayEquation = this.state.displayEquation
     this.setState({displayEquation: `${displayEquation}${value}`})
@@ -123,7 +113,7 @@ class Calculator extends React.Component {
           {this.renderNumberBlock(4)}
           {this.renderNumberBlock(5)}
           {this.renderNumberBlock(6)}
-          {this.renderOperationBlock("X")}
+          {this.renderOperationBlock("*")}
         </div>
         <div className="board-row">
           {this.renderNumberBlock(1)}
