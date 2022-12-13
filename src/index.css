@@ -1,7 +1,8 @@
 :root {
-    --main-background-colour:#A14835;
-    --secondary-background-colour:#C77260;
-    --main-text-colour:#F7B2A3;
+    --main-background-colour:#f2e090;
+    --secondary-background-colour:#343434;
+    --tertrary-background-colour:#1b1b1b;
+    --main-text-colour:#efefef;
     --border-colour:#e3e3e3;
 
     --button-width: 40px;
@@ -51,10 +52,13 @@ body {
 .calculator {
     border-color: var(--border-colour);
     border-style: solid;
-    border-width: 5px;
+    border-width: 2px;
     border-radius: 5%;
 
     padding: 10px;
 
+    background-color: var(--tertrary-background-colour);
+
+    margin: auto;
     width: fit-content;
 }
