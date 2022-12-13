@@ -30,29 +30,37 @@ class Calculator extends React.Component {
     super(props);
 
     this.state = {
-      displayNumber: "0",
+      displayEquation: "0",
+      lastCharacter: "0",
     }
   }
 
   handleNumberButtonClick(value) {
-    const displayNumber = this.state.displayNumber.slice();
+    this.setState({lastCharacter: value});
+    const displayEquation = this.state.displayEquation;
 
-    if(displayNumber === "0") {
-      this.setState({displayNumber: `${value}`});
+    if(displayEquation === "0") {
+      this.setState({displayEquation: `${value}`});
       return
     }
-    this.setState({displayNumber: `${displayNumber}${value}`});
+    this.setState({displayEquation: `${displayEquation}${value}`});
   }
 
   handleOperationButtonClick(value) {
-    switch(value) {
-      case "c":
-        this.setState({displayNumber: "0"});
-        break;
+    if(value == "c") {
+      this.setState({displayEquation: "0"});
+      return;
+    }
+    
+    const operationValues = ["=", "/", "X",
+                             "-", "+"];
+    if(operationValues.includes(this.state.lastCharacter)) {return}
 
+    this.setState({lastCharacter: value});
+    switch(value) {
       case "=":
         console.log("=");
-        break;
+        return;
 
       case "/":
         console.log("/");
@@ -71,8 +79,13 @@ class Calculator extends React.Component {
         break;
 
       default:
+        console.log("This wasn't supposed to happen")
         return;
     }
+
+    const displayEquation = this.state.displayEquation
+    this.setState({displayEquation: `${displayEquation}${value}`})
+    return
   }
 
   renderNumberBlock(value) {
@@ -88,15 +101,15 @@ class Calculator extends React.Component {
       onClick={() => {this.handleOperationButtonClick(value)}}
     />;
   }
-  
+
   render() {
-    const displayNumber = this.state.displayNumber;
+    const displayEquation = this.state.displayEquation;
 
     return (
       <div className='calculator'>
         {/* The numbers and operations being used */}
         <div className='number-screen'>
-          <p className='text'>{displayNumber}</p>   
+          <p className='text'>{displayEquation}</p>   
         </div>
         
         {/* All the buttons for the operations and numbers */}
