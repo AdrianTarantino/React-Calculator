@@ -55,10 +55,9 @@ body {
     border-width: 2px;
     border-radius: 5%;
 
+    background-color: var(--tertrary-background-colour);
     padding: 10px;
 
-    background-color: var(--tertrary-background-colour);
-
-    margin: auto;
-    width: fit-content;
+    margin:auto;
+    width:fit-content;
 }
