@@ -9,8 +9,8 @@ function CalculatorButton({ buttonValue, onClick }) {
 } 
 
 function CalculatorButtonRow({ buttonValues, onClicks}) {
-
     let cells = [];
+
     for(let i = 0; i < buttonValues.length; i ++) {
         cells.push(<CalculatorButton buttonValue={ buttonValues[i] } onClick={ onClicks[i] }/>);
     }
@@ -24,9 +24,9 @@ function CalculatorButtonRow({ buttonValues, onClicks}) {
 
 function CalculatorScreen({ displayText }) {
     return(
-        <div className={ 'CalculatorScreen' }>
+        <td><div className={ 'CalculatorScreen' }>
             <p className={ 'CalculatorScreenText' }>{ displayText }</p>
-        </div>
+        </div></td>
     );
 }
 
@@ -34,7 +34,7 @@ function CalculatorBase() {
     const [screenText, setScreenText] = useState(0);
 
     const addCharToScreen = (char) => {
-        if(screenText.length === 1 && screenText[0] == 0) { 
+        if(screenText.length === 1 && screenText[0] === '0') { 
             setScreenText(char); 
             return;
         }

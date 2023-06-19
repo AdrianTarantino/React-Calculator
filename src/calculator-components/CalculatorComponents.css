@@ -17,6 +17,8 @@
 }
 
 .CalculatorScreen {
+    background-color: #FCFCFC;
+
     border-style: inset;
     border-width: 5px;
 
@@ -35,8 +37,13 @@
 }
 
 .CalculatorBase {
+    background-image: url('../images/calculatorBackground2.jpg');
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    
     border-style: inset;
     border-width: 5px;
+    border-radius: 16px;
 
     width: fit-content;
 

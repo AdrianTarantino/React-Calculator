@@ -4,7 +4,10 @@ import CalculatorBase from './calculator-components/CalculatorComponents.js';
 class App extends React.Component {
     render() {
         return (
-            <CalculatorBase />
+            <>
+                <h1 className='main-heading'>Calculator</h1>
+                <CalculatorBase />
+            </>
         );
     }
 }
