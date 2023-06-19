@@ -5,7 +5,7 @@ class App extends React.Component {
     render() {
         return (
             <>
-                <h1 className='main-heading'>Calculator</h1>
+                <h1 className='main-heading'>React Calculator</h1>
                 <CalculatorBase />
             </>
         );

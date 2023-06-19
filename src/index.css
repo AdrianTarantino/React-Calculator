@@ -1,9 +1,17 @@
+:root {
+    --dark-grey: #222B31;
+    --light-purple-grey: #5A637A;
+    --light-grey: #718293;
+    --off-white: #D1DFDE;
+    --light-brown: #8C7D7E;
+}
+
 body {
-    background-color: #222B31;
+    background-color: var(--dark-grey);
     display: flex;
     justify-content: center;
 }
 
 .main-heading {
-    color: #718293;
+    color: var(--light-grey);
 }

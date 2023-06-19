@@ -1,4 +1,14 @@
+:root {
+    --dark-grey: #222B31;
+    --light-purple-grey: #5A637A;
+    --light-grey: #718293;
+    --off-white: #D1DFDE;
+    --light-brown: #8C7D7E;
+}
+
 .CalculatorButton {
+    background-color: var(--off-white);
+
     border-style: inset;
     border-width: 5px;
 
@@ -12,12 +22,14 @@
 
     text-align: center;
 
+    color: var(--dark-grey);
+
     font-family: Fantasy;
     font-size: 50px;
 }
 
 .CalculatorScreen {
-    background-color: #FCFCFC;
+    background-color: var(--off-white);
 
     border-style: inset;
     border-width: 5px;
@@ -31,20 +43,14 @@
 .CalculatorScreenText {
     text-align: right;
     vertical-align: bottom;
+
+    color: var(--dark-grey);
     
     font-family: Fantasy;
     font-size: 50px;
 }
 
 .CalculatorBase {
-    background-image: url('../images/calculatorBackground2.jpg');
-    background-repeat: no-repeat;
-    background-size: 1000px;
-    
-    border-style: inset;
-    border-width: 5px;
-    border-radius: 16px;
-
     width: fit-content;
 
     padding-bottom: 8px;
