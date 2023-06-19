@@ -62,8 +62,14 @@ function CalculatorBase() {
     };
 
     const solveEqueation = () => {
-        const solvedEquation = stringMath(screenText);
-        setScreenText(solvedEquation);
+        try {
+            const solvedEquation = stringMath(screenText);
+            setScreenText(solvedEquation);
+        }
+
+        catch(error) {
+            clearScreen();
+        }
     };
 
     return(
