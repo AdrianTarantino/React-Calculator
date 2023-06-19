@@ -1,63 +1,18 @@
 :root {
-    --main-background-colour:#f2e090;
-    --secondary-background-colour:#343434;
-    --tertrary-background-colour:#1b1b1b;
-    --main-text-colour:#efefef;
-    --border-colour:#e3e3e3;
-
-    --button-width: 40px;
-    --button-height: 40px;
+    --dark-grey: #222B31;
+    --light-purple-grey: #5A637A;
+    --light-grey: #718293;
+    --off-white: #D1DFDE;
+    --light-brown: #8C7D7E;
 }
 
 body {
-    background-color: var(--main-background-colour);
+    background-color: var(--dark-grey);
+    
+    display: flex;
+    justify-content: center;
 }
 
-.board-row:after {
-    clear:both;
-    content:"";
-    display: table;
-}
-
-.text {
-    color: var(--main-text-colour);
-    font-family:Roboto, Noto, sans-serif;
-    font-size:30px;
-
-    margin-left:5px;
-    margin-right:5px;
-    margin-top:5px;
-}
-
-.number-screen {
-    background-color: var(--secondary-background-colour);
-    text-align:right;
-
-    width: calc(4 * var(--button-width));
-
-    border-radius: 30%;
-}
-
-.button {
-    background-color: var(--secondary-background-colour);
-    text-align: center;
-    width: var(--button-width);
-    height: var(--button-height);
-
-    border-radius: 50%;
-
-    float: left;
-}
-
-.calculator {
-    border-color: var(--border-colour);
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 5%;
-
-    background-color: var(--tertrary-background-colour);
-    padding: 10px;
-
-    margin:auto;
-    width:fit-content;
+.main-heading {
+    color: var(--light-grey);
 }
