@@ -21,7 +21,6 @@
     height: 100px;
 
     text-align: center;
-
     color: var(--dark-grey);
 
     font-family: Fantasy;
@@ -43,7 +42,6 @@
 .CalculatorScreenText {
     text-align: right;
     vertical-align: bottom;
-
     color: var(--dark-grey);
     
     font-family: Fantasy;

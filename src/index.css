@@ -8,6 +8,7 @@
 
 body {
     background-color: var(--dark-grey);
+    
     display: flex;
     justify-content: center;
 }
