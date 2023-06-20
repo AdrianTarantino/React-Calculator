@@ -46,19 +46,32 @@ function CalculatorScreen({ displayText }) {
  * Component used to represent the base of the calculator.
  */
 function CalculatorBase() {
-    const [screenText, setScreenText] = useState(0);
+    const [screenText, setScreenText] = useState('');
+    const [canAddSpecialChar, setCanAddSpecialChar] = useState(false);
+    const specialChars = [0, '+', '-', '*', '/'];
 
     const addCharToScreen = (char) => {
-        if(screenText.length === 1 && screenText[0] === '0') { 
-            setScreenText(char); 
-            return;
+        let isSpecialChar = false;
+        for(let i = 0; i < specialChars.length; i ++) {
+            if(char === specialChars[i]) { 
+                isSpecialChar = true; 
+                break;
+            }
         }
 
+        if(!canAddSpecialChar && isSpecialChar) { return; }
         setScreenText([screenText, char].join(''));
+
+        if(isSpecialChar) { 
+            setCanAddSpecialChar(false);
+            return;
+        }
+        setCanAddSpecialChar(true);
     }
 
     const clearScreen = () => {
-        setScreenText('0');
+        setCanAddSpecialChar(false);
+        setScreenText('');
     };
 
     const solveEqueation = () => {
