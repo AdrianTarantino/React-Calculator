@@ -37,6 +37,9 @@
     margin-bottom: 8px;
 
     height: 100px;
+    max-width: 453.021px;
+
+    overflow: hidden;
 }
 
 .CalculatorScreenText {
@@ -46,6 +49,8 @@
     
     font-family: Fantasy;
     font-size: 50px;
+
+    float:right;
 }
 
 .CalculatorBase {
