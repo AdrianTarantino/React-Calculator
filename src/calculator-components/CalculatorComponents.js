@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import stringMath from 'string-math';   // Library used for taking string of math formula and solving.
+import { Button } from 'antd';
 import './CalculatorComponents.css';
 
 /** 
@@ -8,7 +9,7 @@ import './CalculatorComponents.css';
  */
 function CalculatorButton({ buttonText, onClick }) {
     return(
-        <button className={ 'CalculatorButton' } onClick={ onClick }>{ buttonText }</button>
+        <Button className={ 'CalculatorButton' } onClick={ onClick }>{ buttonText }</Button>
     );
 } 
 
